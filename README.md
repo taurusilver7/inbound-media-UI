@@ -40,7 +40,16 @@ Create a global button for the application with default attributes.
 
 - Post
 
-Create a post component to occupy the max-width of the home page.
+Create a posts component to occupy the auto-width of the home page.
+The posts section has an upload top component, and post results compoenent.
+
+The upload component has a text input field, and a set of buttons. A hidden file input element linked to a useRef() hook calls the click event on the image-upload button.
+
+Add a imageRef ref value to the file input. Fire a callback fn on change of the input. Search for the file existence in the ref, and add the image to the state after uploading the file to browser & converting it into an url for upload.
+
+Attach the ref to the onClick event on the image-upload button. `onClick={() => imageRef.current.click()}`, to fire the onChange event on the file-input element.
+
+Create another div to display the image on condition of its existance (if image === true). Add a close button to empty the state.
 
 ### Deployment
 
