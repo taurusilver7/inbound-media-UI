@@ -28,3 +28,21 @@
   background: #a6ddf0;
   filter: blur(80px);
 }
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--buttonBg);
+  transition: 100ms ease-out;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: orange;
+  background: transparent;
+  border: 2px solid var(--orange);
+}
