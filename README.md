@@ -28,6 +28,8 @@ The home components has a relative grid size of: 18rem (profile), auto (max-post
 
 Create a search component with a logo & an input element. Style the input search icon with a gradient to match the logo, for ambience.
 
+Create a profile card component to hold the cover+user profile, user details & follower details.
+
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
