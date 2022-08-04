@@ -1,6 +1,6 @@
 # Inbound-Media
 
-> The client-side development of a MERN stack social media application.
+> The client-side development of a MERN stack social media application. The marvel of social, gossip & advertisement.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -69,7 +69,17 @@ The center grid has the user profile, and uploaded posts. The right grip has tre
 
 Add the search, infoCard, and followers components on the left side. Add the Card (userCard), and Results components on the middle grid.
 
-Condition the My profile button in the Card component to appear only on left stack. Add suggestions to the right end.
+Condition the `My-profile` button in the Card component to appear only on left stack. Add suggestions to the right end.
+
+Create a modal to let the users edit their personal details on the application & modify in the database.
+
+Use library [mantine](https://mantine.dev/guides/cra/) for creating a modal. Use a template to create the modal & mount it on the application.
+
+Add modal for user detail modification, and post uploading in suggestions component.
+
+### Auth
+
+Create an auth page for login & signup accounts to the application. Add the application logo & title to the layout.
 
 ### Deployment
 
