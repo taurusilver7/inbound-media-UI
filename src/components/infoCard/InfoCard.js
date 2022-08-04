@@ -2,14 +2,22 @@ import React from "react";
 import "./InfoCard.css";
 
 import { UilPen } from "@iconscout/react-unicons";
+import { useState } from "react";
+import InfoModal from "../modal/InfoModal";
 
 const InfoCard = () => {
+  const [opened, setOpened] = useState(false);
   return (
     <div className="infoCard">
       <div className="infoHead">
         <h4>Your Info</h4>
         <div>
-          <UilPen width="2rem" height="1.2rem" />
+          <UilPen
+            onClick={() => setOpened(true)}
+            width="2rem"
+            height="1.2rem"
+          />
+          <InfoModal opened={opened} setOpened={setOpened} />
         </div>
       </div>
 
