@@ -63,7 +63,9 @@ Create a trends component to display mock-data on Trends, and populate them in a
 
 ### Profile
 
-The profile page has user information, and a means to modify & update the user information.
+The profile page has 3 grids. The left grid has search, user-info & followings data.
+
+The center grid has the user profile, and uploaded posts. The right grip has trend suggestions, with option buttons.
 
 ### Deployment
 
