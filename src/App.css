@@ -35,7 +35,7 @@
   justify-content: center;
   color: #fff;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   background: var(--buttonBg);
   transition: 100ms ease-out;
 }
@@ -45,4 +45,8 @@
   color: orange;
   background: transparent;
   border: 2px solid var(--orange);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
