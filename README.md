@@ -67,6 +67,10 @@ The profile page has 3 grids. The left grid has search, user-info & followings d
 
 The center grid has the user profile, and uploaded posts. The right grip has trend suggestions, with option buttons.
 
+Add the search, infoCard, and followers components on the left side. Add the Card (userCard), and Results components on the middle grid.
+
+Condition the My profile button in the Card component to appear only on left stack. Add suggestions to the right end.
+
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
