@@ -1,7 +1,8 @@
 import React from "react";
-import Posts from "../../components/posts/Posts";
+import Results from "../../components/results/Results";
 import Profile from "../../components/profile/Profile";
 import "./Home.css";
+import Suggestions from "../../components/suggestions/Suggestions";
 
 const Home = () => {
   return (
@@ -9,10 +10,10 @@ const Home = () => {
       <div className="profile">
         <Profile />
       </div>
-      <div className="post">
-        <Posts />
+      <div className="results">
+        <Results />
       </div>
-      <div className="right">Right</div>
+      <div className="suggestions"><Suggestions /></div>
     </div>
   );
 };
