@@ -1,0 +1,21 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: var(--card);
+  border-radius: 1rem;
+  gap: 1rem;
+}
+
+.postImg {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.postButtons {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
