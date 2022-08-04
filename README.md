@@ -38,10 +38,10 @@ Create a followers component with a mock data from /Data. Add a follower img, na
 
 Create a global button for the application with default attributes.
 
-- Post
+- Results
 
-Create a posts component to occupy the auto-width of the home page.
-The posts section has an upload top component, and post results compoenent.
+Create a results component to occupy the center grid of the home page.
+The posts section has an upload top component, and posts compoenent.
 
 The upload component has a text input field, and a set of buttons. A hidden file input element linked to a useRef() hook calls the click event on the image-upload button.
 
@@ -50,6 +50,20 @@ Add a imageRef ref value to the file input. Fire a callback fn on change of the 
 Attach the ref to the onClick event on the image-upload button. `onClick={() => imageRef.current.click()}`, to fire the onChange event on the file-input element.
 
 Create another div to display the image on condition of its existance (if image === true). Add a close button to empty the state.
+
+Creata a mockData for posts & populate them in the posts component. Populate each post in a induvidual Post component.
+
+Each Post component has a post image, post buttons, and user info.
+
+- Suggestions
+
+The right corner component to carry the optional buttons, and suggestion users & trends.
+
+Create a trends component to display mock-data on Trends, and populate them in a section.
+
+### Profile
+
+The profile page has user information, and a means to modify & update the user information.
 
 ### Deployment
 
