@@ -91,6 +91,12 @@ Import [redux-thunk](https://www.npmjs.com/package/redux-thunk) middleware to re
 
 To send requests to the API on the server side & handle responses, import axios & create /api to handle the auth related requests in `auth.js`. Add the server url `http://localhost:5000/api/v1` to the package.json as _proxy_
 
+Create a auth based reducer action_types, state_updates, and actions in /actions & /reducers to request & parse the auth information from server. Store the auth information on successful authentication on local storage undert the tag: "profile"
+
+Navigate between the pages based on the login & register state in the authReducer.authData. Based on authData, navigate between Auth & Home pages.
+
+The MongoDB database prevents the user from uploading images into its database for security issues. Either user another storage service like AWS, firebase, or directly store the images in server local storage & retrueve them when called upon.
+
 
 
 ### Deployment
