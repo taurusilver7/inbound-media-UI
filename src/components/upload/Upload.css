@@ -8,8 +8,8 @@
 
 .upload > img {
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+  width: 2.8rem;
+  height: 2.8rem;
 }
 
 .uploadInput {
@@ -51,7 +51,7 @@
 }
 
 .uploadButton:disabled {
-   background: silver;
+  background: silver;
   pointer-events: none;
 }
 

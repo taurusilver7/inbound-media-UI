@@ -14,7 +14,9 @@ import { createPost } from "../../actions/post";
 const Upload = () => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const loading = useSelector((state) => state.postReducer.uploading);
-  console.log(loading);
+  // console.log(loading);
+
+  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
 
   const [image, setImage] = useState(null);
   const dispatch = useDispatch();
@@ -63,7 +65,14 @@ const Upload = () => {
 
   return (
     <div className="upload">
-      <img src={ProfileImg} alt="profile_pic" />
+      <img
+        src={
+          user.profilePicture
+            ? serverPublic + user.coverPicture
+            : serverPublic + "defaultProfile.png"
+        }
+        alt="profile_pic"
+      />
 
       <div className="uploadInput">
         <input
