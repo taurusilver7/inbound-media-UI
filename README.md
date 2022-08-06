@@ -97,6 +97,12 @@ Navigate between the pages based on the login & register state in the authReduce
 
 The MongoDB database prevents the user from uploading images into its database for security issues. Either user another storage service like AWS, firebase, or directly store the images in server local storage & retrueve them when called upon.
 
+Create an api endpoint, an upload action & dispatch it in the upload component. Create a upload route & handler function to store the image in local storage in the server.
+
+Create an endpoint & a dispatch actions for post. Create a postReducer to add all the action types & their corresponding state changes.
+
+Modify the UI corresponding to the reducer states, and for better flexibility. Disable the post button in upload component prior to no content in the input field.
+
 
 
 ### Deployment
