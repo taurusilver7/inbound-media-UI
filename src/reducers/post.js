@@ -20,7 +20,7 @@ const postReducer = (
     case "RETREIVING_START":
       return { ...state, loading: true, error: false };
     case "RETREIVING_SUCCESS":
-      return { ...state, post: action.data, loading: true, error: false };
+      return { ...state, posts: action.data, loading: false, error: false };
     case "RETREIVING_FAIL":
       return { ...state, loading: false, error: true };
     default:
