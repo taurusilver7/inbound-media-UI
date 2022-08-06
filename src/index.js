@@ -1,9 +1,22 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store/reduxStore";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
-  <App/>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <StrictMode>
+        <Routes>
+          <Route path="*" element={<App />}/>
+        </Routes>
+      </StrictMode>
+    </BrowserRouter>
+  </Provider>,
+
   document.getElementById("root")
 );
 
