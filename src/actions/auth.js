@@ -10,6 +10,7 @@ export const login = (formData) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch({ type: "AUTH_FAIL" });
+    console.log(error);
   }
 };
 
@@ -20,5 +21,10 @@ export const signup = (formData) => async (dispatch) => {
     dispatch({ type: "AUTH_SUCCESS", data });
   } catch (error) {
     dispatch({ type: "AUTH_FAIL" });
+    console.log(error);
   }
+};
+
+export const logout = () => async (dispatch) => {
+  dispatch({ type: "LOG_OUT" });
 };
