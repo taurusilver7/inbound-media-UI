@@ -2,7 +2,7 @@ import React from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login, signup } from "../../actions/auth";
 
 const Auth = () => {
@@ -14,8 +14,11 @@ const Auth = () => {
     confirmPassword: "",
   });
   const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.authReducer);
   const [register, setRegister] = useState(false);
   const [confirmPass, setConfirmPass] = useState(true);
+
+  // console.log(loading);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -41,10 +44,10 @@ const Auth = () => {
         ? dispatch(signup(data))
         : setConfirmPass(false);
     } else {
-      dispatch(login(data))
+      dispatch(login(data));
     }
 
-    console.log(data);
+    // console.log(data);
   };
   return (
     <div className="auth">
@@ -133,24 +136,31 @@ const Auth = () => {
             Confirm password mismatched!
           </span>
 
-          <div>
-            <span
-              style={{
-                fontSize: "12px",
-                cursor: "pointer",
-                textDecoration: "underline",
-              }}
-              onClick={() => {
-                resetForm();
-                setRegister((prev) => !prev);
-              }}
+          <div style={{ alignItems: "center" }}>
+            <small
+            // style={{
+            //   fontSize: "12px",
+            // }}
             >
               {register
-                ? "Already have an account? Login"
-                : "Don't have an account? Register here!"}
-            </span>
-            <button className="button infoBtn" type="submit">
-              {register ? "Register" : "Login"}
+                ? "Already have an account? "
+                : "Don't have an account? "}
+              <span
+                style={{
+                  fontSize: "12px",
+                  cursor: "pointer",
+                  textDecoration: "underline",
+                }}
+                onClick={() => {
+                  resetForm();
+                  setRegister((prev) => !prev);
+                }}
+              >
+                {register ? "Login" : "Register here!"}
+              </span>
+            </small>
+            <button className="button infoBtn" type="submit" disabled={loading}>
+              {loading ? "Loading.." : register ? "Register" : "Login"}
             </button>
           </div>
         </form>
