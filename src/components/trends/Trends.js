@@ -1,6 +1,6 @@
 import React from "react";
 import "./Trends.css";
-import { TrendData } from "../../Data/TrendData";
+import { TrendData } from "../../data/TrendData";
 
 const Trends = () => {
   return (
