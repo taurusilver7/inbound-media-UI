@@ -9,23 +9,27 @@ import Like from "../../img/like.png";
 import Share from "../../img/share.png";
 
 const Post = ({ post }) => {
+  const { message, newPost } = post;
+  console.log(message, post);
   return (
     <div className="post">
-      <img className="postImg" src={post.img} alt={post.name} />
+      <img className="postImg" src={newPost?.image} alt={newPost?.name} />
 
       <div className="postButtons">
-        <img src={post.liked ? Like : NotLike} alt="like_button" />
+        <img src={newPost?.likes ? Like : NotLike} alt="like_button" />
         <img src={Comment} alt="comment_button" />
         <img src={Share} alt="share_button" />
       </div>
 
-      <span style={{color: 'var(--gray)', fontSize: '12px'}}>{post.likes} likes</span>
+      <span style={{ color: "var(--gray)", fontSize: "12px" }}>
+        {newPost?.likes} likes
+      </span>
 
       <div className="detail">
         <span>
-          <b>{post.name}</b>
+          <b>{newPost.desc}</b>
         </span>
-        <span>{post.desc}</span>
+        {/* <span>{newPost?.desc}</span> */}
       </div>
     </div>
   );
