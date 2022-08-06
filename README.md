@@ -81,6 +81,18 @@ Add modal for user detail modification, and post uploading in suggestions compon
 
 Create an auth page for login & signup accounts to the application. Add the application logo & title to the layout.
 
+Condition the additional input fields with a state value & create handleChange callback function to load the state with the input values. Create a reset function to reset the value ot initial state on form switching.
+
+### Redux
+
+Import [redux](https://redux.js.org/), [react-redux](https://react-redux.js.org/) to set up global store for state-management.
+
+Import [redux-thunk](https://www.npmjs.com/package/redux-thunk) middleware to return functions, rather than just actions, within redux.
+
+To send requests to the API on the server side & handle responses, import axios & create /api to handle the auth related requests in `auth.js`. Add the server url `http://localhost:5000/api/v1` to the package.json as _proxy_
+
+
+
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
