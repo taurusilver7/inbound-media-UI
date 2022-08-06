@@ -50,6 +50,11 @@
   font-size: 12px;
 }
 
+.uploadButton:disabled {
+   background: silver;
+  pointer-events: none;
+}
+
 .preview {
   position: relative;
   display: flex;
@@ -63,8 +68,8 @@
 }
 
 .previewImg {
-  width: 100%;
-  max-height: 20rem;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 25rem;
+  object-fit: contain;
   border-radius: 0.5rem;
 }

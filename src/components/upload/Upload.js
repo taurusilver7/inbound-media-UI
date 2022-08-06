@@ -7,32 +7,24 @@ import { UilPlayCircle } from "@iconscout/react-unicons";
 import { UilLocationPoint } from "@iconscout/react-unicons";
 import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { uploadImage } from "../../actions/upload";
+import { createPost } from "../../actions/post";
 
 const Upload = () => {
   const { user } = useSelector((state) => state.authReducer.authData);
-  console.log(user);
-  const descRef = useRef();
+  const loading = useSelector((state) => state.postReducer.uploading);
+  console.log(loading);
 
   const [image, setImage] = useState(null);
+  const dispatch = useDispatch();
+
   const imageRef = useRef();
+  const descRef = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newPost = {
-      userId: user._id,
-      desc: descRef.current.value,
-    };
-    if (image) {
-      const data = new FormData();
-      const fileName = Date.now() + image.name;
-      data.append("name", fileName);
-      data.append("fille", image);
-
-      newPost.image = fileName;
-      console.log(newPost);
-    }
+  const resetPost = () => {
+    setImage(null);
+    descRef.current.value = "";
   };
 
   const onImgChange = (e) => {
@@ -41,13 +33,41 @@ const Upload = () => {
       setImage(img);
     }
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const newPost = {
+      userId: user._id,
+      desc: descRef.current.value,
+    };
+    // If there is an image in the post, only activate.
+    if (image) {
+      const data = new FormData();
+      const fileName = Date.now() + image.name;
+      data.append("name", fileName);
+      data.append("file", image);
+
+      newPost.image = fileName;
+      console.log(newPost);
+
+      try {
+        dispatch(uploadImage(data));
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    descRef.current.value !== "" && dispatch(createPost(newPost));
+    resetPost();
+  };
+
   return (
     <div className="upload">
-      <img src={ProfileImg} alt="" />
+      <img src={ProfileImg} alt="profile_pic" />
 
       <div className="uploadInput">
         <input
-          required
+          required={true}
           ref={descRef}
           type="text"
           placeholder="What's happening"
@@ -74,16 +94,15 @@ const Upload = () => {
             <UilSchedule />
             Schedule
           </div>
-          <button onClick={handleSubmit} className="button uploadButton">
-            post
+          <button
+            onClick={handleSubmit}
+            disabled={loading}
+            className="button uploadButton"
+          >
+            {loading ? "Uploading" : "Post"}
           </button>
           <div style={{ display: "none" }}>
-            <input
-              onChange={onImgChange}
-              type="file"
-              name="myImg"
-              ref={imageRef}
-            />
+            <input onChange={onImgChange} type="file" ref={imageRef} />
           </div>
         </div>
 
@@ -93,7 +112,7 @@ const Upload = () => {
             <img
               className="previewImg"
               src={URL.createObjectURL(image)}
-              alt="upload_img"
+              alt="preview"
             />
           </div>
         )}
