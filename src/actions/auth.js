@@ -13,4 +13,12 @@ export const login = (formData) => async (dispatch) => {
   }
 };
 
-export const signup = () => {}
+export const signup = (formData) => async (dispatch) => {
+  dispatch({ type: "AUTH_START" });
+  try {
+    const { data } = await authApi.signup(formData);
+    dispatch({ type: "AUTH_SUCCESS", data });
+  } catch (error) {
+    dispatch({ type: "AUTH_FAIL" });
+  }
+};
