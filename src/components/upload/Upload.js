@@ -7,17 +7,38 @@ import { UilPlayCircle } from "@iconscout/react-unicons";
 import { UilLocationPoint } from "@iconscout/react-unicons";
 import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
+import { useSelector } from "react-redux";
 
 const Upload = () => {
+  const { user } = useSelector((state) => state.authReducer.authData);
+  console.log(user);
+  const descRef = useRef();
+
   const [image, setImage] = useState(null);
   const imageRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newPost = {
+      userId: user._id,
+      desc: descRef.current.value,
+    };
+    if (image) {
+      const data = new FormData();
+      const fileName = Date.now() + image.name;
+      data.append("name", fileName);
+      data.append("fille", image);
+
+      newPost.image = fileName;
+      console.log(newPost);
+    }
+  };
 
   const onImgChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       let img = e.target.files[0];
-      setImage({
-        image: URL.createObjectURL(img),
-      });
+      setImage(img);
     }
   };
   return (
@@ -25,7 +46,12 @@ const Upload = () => {
       <img src={ProfileImg} alt="" />
 
       <div className="uploadInput">
-        <input type="text" placeholder="What's happening" />
+        <input
+          required
+          ref={descRef}
+          type="text"
+          placeholder="What's happening"
+        />
 
         <div className="uploadBtns">
           <div
@@ -48,7 +74,9 @@ const Upload = () => {
             <UilSchedule />
             Schedule
           </div>
-          <button className="button uploadButton">post</button>
+          <button onClick={handleSubmit} className="button uploadButton">
+            post
+          </button>
           <div style={{ display: "none" }}>
             <input
               onChange={onImgChange}
@@ -62,7 +90,11 @@ const Upload = () => {
         {image && (
           <div className="preview">
             <UilTimes onClick={() => setImage(null)} />
-            <img className="previewImg" src={image.image} alt="upload_img" />
+            <img
+              className="previewImg"
+              src={URL.createObjectURL(image)}
+              alt="upload_img"
+            />
           </div>
         )}
       </div>
