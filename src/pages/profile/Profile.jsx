@@ -16,7 +16,7 @@ const Profile = () => {
         <Followers />
       </div>
       <div className="center">
-        <Card />
+        <Card location={"page"} />
         <Results />
       </div>
       <div className="right">
