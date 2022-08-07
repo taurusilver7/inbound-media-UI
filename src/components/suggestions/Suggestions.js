@@ -7,6 +7,7 @@ import { UilSetting } from "@iconscout/react-unicons";
 import Trends from "../trends/Trends";
 import { useState } from "react";
 import ShareModal from "../shareModal/ShareModal";
+import { Link } from "react-router-dom";
 
 const Suggestions = () => {
   const [opened, setOpened] = useState(false);
@@ -14,7 +15,9 @@ const Suggestions = () => {
   return (
     <div className="suggestions">
       <div className="navIcons">
-        <img src={Home} alt="home_icon" />
+        <Link to="../home">
+          <img src={Home} alt="home_icon" />
+        </Link>
         <UilSetting />
         <img src={Notification} alt="notification_icon" />
         <img src={Comment} alt="comment_icon" />
@@ -25,7 +28,7 @@ const Suggestions = () => {
       <button onClick={() => setOpened(true)} className="button suggestionsBtn">
         Share
       </button>
-        <ShareModal opened={opened} setOpened={setOpened} />
+      <ShareModal opened={opened} setOpened={setOpened} />
     </div>
   );
 };

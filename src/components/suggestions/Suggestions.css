@@ -16,6 +16,11 @@
   height: 1.5rem;
 }
 
+.navIcons > a > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .suggestionsBtn {
   width: 70%;
   height: 2.5rem;
