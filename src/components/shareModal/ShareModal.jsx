@@ -1,3 +1,5 @@
+// Modal for Share button in the Suggestions.
+
 import { Modal } from "@mantine/core";
 import Upload from "../upload/Upload";
 
