@@ -103,7 +103,15 @@ Create an endpoint & a dispatch actions for post. Create a postReducer to add al
 
 Modify the UI corresponding to the reducer states, and for better flexibility. Disable the post button in upload component prior to no content in the input field.
 
+use the reducer in the Posts, Post, Upload & Card components to retreive information from the server to make the components dynamic.
 
+Add two default images to cover & profile & the user can update them using the update user endpoint. Navigate to the Profile page from the Card component.
+
+A new props `location` is added to the Card component to differntiate its position in the Home & Profile pages. Condition the component to display certain elements in only certain page.
+
+Filter through post to match their userId's and get the number of posts uploaded by a certain user.
+
+Update the InfoCard component in the Profile page with their user dynamic information.
 
 ### Deployment
 
