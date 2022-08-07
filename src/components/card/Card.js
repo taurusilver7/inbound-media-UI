@@ -5,10 +5,10 @@ import "./Card.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = ({ location }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
+  const { posts } = useSelector((state) => state.postReducer);
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
-  const profilePage = false;
   return (
     <div className="card">
       <div className="image">
@@ -54,11 +54,13 @@ const Card = () => {
             <span>Followers</span>
           </div>
 
-          {profilePage && (
+          {location !== "home" && (
             <>
               <div className="vl"></div>
               <div className="follows">
-                <span>3</span>
+                <span>
+                  {posts.filter((post) => post.userId === user._id).length}
+                </span>
                 <span>Posts</span>
               </div>
             </>
@@ -67,9 +69,7 @@ const Card = () => {
         <hr />
       </div>
 
-      {profilePage ? (
-        ""
-      ) : (
+      {location !== "page" ? (
         <span>
           <Link
             style={{ textDecoration: "none", color: "inherit" }}
@@ -78,6 +78,8 @@ const Card = () => {
             My Profile
           </Link>
         </span>
+      ) : (
+        ""
       )}
     </div>
   );
